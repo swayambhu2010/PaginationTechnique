@@ -30,6 +30,8 @@ class AppRouter: ObservableObject {
         switch route {
         case .listPage:
             makeListView()
+        case .detail(_):
+            makeDetailView()
         }
     }
     
@@ -38,6 +40,12 @@ class AppRouter: ObservableObject {
             paginationUsecase: PaginationUseCase(paginationRepo: PaginationRepo()))
         let contentView = ContentView(viewModel: viewModel)
         return contentView
+            
+    }
+    
+    func makeDetailView() -> DetailView {
+        let detailView = DetailView()
+        return detailView
             
     }
 }

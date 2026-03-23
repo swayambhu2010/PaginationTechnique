@@ -12,7 +12,7 @@ struct MainData {
     var data: [DataModel]
 }
 
-struct DataModel: Identifiable {
+struct DataModel: Identifiable, Hashable {
     var id: UUID = UUID()
     var name: String?
     var age: Int?

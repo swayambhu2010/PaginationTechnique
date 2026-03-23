@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @ObservedObject var viewModel: ViewModel
-
+    @EnvironmentObject var router: AppRouter
     
     let pageSize = 10
     
@@ -28,6 +28,9 @@ struct ContentView: View {
                         }
                         .onAppear {
                             viewModel.loadMoreIfNeeded(index: index, pageSize: pageSize)
+                        }
+                        .onTapGesture {
+                            router.move(to: .detail(item))
                         }
                     }
                 }
