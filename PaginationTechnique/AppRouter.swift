@@ -14,6 +14,11 @@ class AppRouter: ObservableObject {
     @Published var path = NavigationPath()
     private let appContainer: AppContainer
     
+    lazy var listViewModel: ViewModel = {
+        ViewModel(
+            paginationUsecase: appContainer.paginationUseCase)
+    }()
+    
     init(appContainer: AppContainer) {
         self.appContainer = appContainer
     }
@@ -41,9 +46,7 @@ class AppRouter: ObservableObject {
     }
     
     func makeListView() -> ContentView {
-        let viewModel = ViewModel(
-            paginationUsecase: appContainer.paginationUseCase)
-        let contentView = ContentView(viewModel: viewModel)
+        let contentView = ContentView(viewModel: listViewModel)
         return contentView
             
     }
