@@ -9,9 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @StateObject private var viewModel = ViewModel(
-        paginationUsecase: PaginationUseCase(paginationRepo: PaginationRepo())
-    )
+    @ObservedObject var viewModel: ViewModel
+
     
     let pageSize = 10
     

@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct PaginationTechniqueApp: App {
+    
+    @StateObject var router: AppRouter = AppRouter()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationStack(path: $router.path) {
+                router.navigate(to: .listPage)
+            }
         }
     }
 }
