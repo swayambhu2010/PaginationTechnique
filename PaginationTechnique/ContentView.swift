@@ -15,7 +15,6 @@ struct ContentView: View {
     let pageSize = 10
     
     var body: some View {
-        NavigationView {
             VStack(spacing: 2) {
                 List {
                     ForEach(viewModel.data.indices, id: \.self) { index in
@@ -49,6 +48,5 @@ struct ContentView: View {
                 viewModel.reset()
                 viewModel.fetchNext(pageSize: pageSize)
             }
-        }
     }
 }
