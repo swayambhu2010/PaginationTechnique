@@ -21,7 +21,7 @@ class PaginationRepo: PaginationRepoProtocol {
     
     func dataArray() -> [DataModel] {
         for i in 0...100 {
-            let value = DataModel(name: "Swayambhu \(i)", age: 35 + i, image: "")
+            let value = DataModel(name: "Swayambhu \(i)", age: 35 + i, image: "https://contents.mediadecathlon.com/p3043376/a6d5565fe1ce5db1e0364d03559423f0/p3043376.jpg?format=auto")
             values.append(value)
         }
          return values

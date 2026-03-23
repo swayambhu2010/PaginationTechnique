@@ -19,12 +19,16 @@ struct ContentView: View {
                 List {
                     ForEach(viewModel.data.indices, id: \.self) { index in
                         let item = viewModel.data[index]
-                        
-                        VStack(alignment: .leading) {
-                            Text(item.name ?? "Unknown")
-                                .font(.headline)
-                            Text("Age: \(item.age ?? 0)")
-                                .font(.subheadline)
+                        HStack {
+                            CachedAsyncImage(urlString: item.image)
+                                    .frame(width: 50, height: 50)
+                                    .clipShape(Circle())
+                            VStack(alignment: .leading) {
+                                Text(item.name ?? "Unknown")
+                                    .font(.headline)
+                                Text("Age: \(item.age ?? 0)")
+                                    .font(.subheadline)
+                            }
                         }
                         .onAppear {
                             viewModel.loadMoreIfNeeded(index: index, pageSize: pageSize)
