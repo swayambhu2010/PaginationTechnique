@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+class AppContainer {
+    
+    lazy var paginationRepo: PaginationRepo = {
+        PaginationRepo()
+    }()
+}

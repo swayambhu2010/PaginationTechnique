@@ -11,6 +11,8 @@ import SwiftUI
 struct PaginationTechniqueApp: App {
     
     @StateObject var router: AppRouter = AppRouter()
+    @StateObject var container: AppContainer = AppContainer()
+    
     var body: some Scene {
         WindowGroup {
             NavigationStack(path: $router.path) {
