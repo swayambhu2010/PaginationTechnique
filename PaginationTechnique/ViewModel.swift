@@ -34,7 +34,7 @@ class ViewModel: ObservableObject {
         
         let thresholdIndex = max(data.count - 3, 0)
         
-        if index == thresholdIndex {
+        if index >= thresholdIndex {
             fetchNext(pageSize: pageSize)
         }
     }
@@ -47,6 +47,7 @@ class ViewModel: ObservableObject {
         
         Task {
             do {
+                await Task.yield()
                 let newData = try await paginationUsecase.getData(
                     index: currentIndex,
                     pageSize: pageSize
