@@ -12,7 +12,11 @@ import Combine
 class AppRouter: ObservableObject {
     
     @Published var path = NavigationPath()
-    @StateObject var appContainer = AppContainer()
+    private let appContainer: AppContainer
+    
+    init(appContainer: AppContainer) {
+        self.appContainer = appContainer
+    }
     
     func move(to route: Route) {
         path.append(route)
@@ -38,7 +42,7 @@ class AppRouter: ObservableObject {
     
     func makeListView() -> ContentView {
         let viewModel = ViewModel(
-            paginationUsecase: PaginationUseCase(paginationRepo: appContainer.paginationRepo))
+            paginationUsecase: appContainer.paginationUseCase)
         let contentView = ContentView(viewModel: viewModel)
         return contentView
             

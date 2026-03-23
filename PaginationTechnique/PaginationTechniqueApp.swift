@@ -10,8 +10,7 @@ import SwiftUI
 @main
 struct PaginationTechniqueApp: App {
     
-    @StateObject var router: AppRouter = AppRouter()
-    @StateObject var container: AppContainer = AppContainer()
+    @StateObject var router: AppRouter = AppRouter(appContainer: AppContainer())
     
     var body: some Scene {
         WindowGroup {
@@ -21,7 +20,7 @@ struct PaginationTechniqueApp: App {
                         router.navigate(to: route)
                     }
             }
+            .environmentObject(router)
         }
-        .environmentObject(router)
     }
 }

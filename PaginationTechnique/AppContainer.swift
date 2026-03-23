@@ -9,7 +9,11 @@ import Foundation
 
 class AppContainer {
     
-    lazy var paginationRepo: PaginationRepo = {
+    lazy var paginationRepo: PaginationRepoProtocol = {
         PaginationRepo()
+    }()
+    
+    lazy var paginationUseCase: PaginationUseCaseProtocol = {
+        PaginationUseCase(paginationRepo: paginationRepo)
     }()
 }
