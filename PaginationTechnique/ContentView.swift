@@ -39,6 +39,7 @@ struct ContentView: View {
                         ProgressView()
                         Spacer()
                     }
+                    .id("loader")
                 }
             }
             .navigationTitle("Pagination Demo")

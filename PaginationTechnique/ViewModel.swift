@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 
+@MainActor
 class ViewModel: ObservableObject {
     
     @Published var hasMore: Bool = true
